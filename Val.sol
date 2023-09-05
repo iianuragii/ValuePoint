@@ -7,12 +7,12 @@ contract memoryPoint
 
     struct Memory{
         int value;    
-        bytes32 name;           //Structure named Memory
+        string name;           //Structure named Memory
     }
 
     Memory[] public arr;  //Array arr declared of type struct Memory
 
-    mapping (bytes32 => int)public map;    //bytes32 is same as string but bounded
+    mapping (string => int)public map;    //string is same as string but bounded
 
     function setMemory(int a)public {
         value = a;              //value is set
@@ -22,7 +22,7 @@ contract memoryPoint
         return value;           //value is returned
     }
 
-    function addMemory(bytes32 s, int a)public {
+    function addMemory(string memory s, int a)public {
         arr.push(Memory(a,s));
         map[s] = a;              //Array elements are pushed in the form of dictionary
     }
